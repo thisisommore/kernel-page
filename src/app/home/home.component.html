@@ -1,0 +1,49 @@
+<div class="col-xs-12 text-left">
+<button class="btn btn-success" style="margin-top: 20px;" routerLink="/login">
+  Login
+</button>
+<button (click)="onSaveButton()" class="btn btn-primary" style="margin-top: 20px; margin-left: 5px;">
+  {{isDataAddOpen ? 'Save':'Add'}}</button>
+<hr />
+
+<form class="form-group" [formGroup]="GroupOfFormForNewKernelData">
+  <div formArrayName="ArrayG">
+    <div *ngFor="let control of controls; let in = index" formGroupName="0">
+
+    <label for="KName">
+      Kernel Name
+    </label>
+    <input class="form-control" type="text" name="KName" 
+    formControlName="KName">
+
+    <label for="KDate">
+      Kernel Date
+    </label>
+    <input class="form-control" type="text" name="KDate" 
+    formControlName="KDate">
+
+    <label for="KBuildUrl">
+      Kernel Build Url
+    </label>
+    <input class="form-control" type="text" name="KBuildUrl" 
+    formControlName="KBuildUrl">
+  </div>
+</div>
+
+</form>
+  <div style="cursor: pointer;" *ngFor="let oneKernel of kernelArray"
+   (click)="VisitPage(oneKernel)" 
+  class="list-group-item clearfix">
+    <div class="float-left">
+      <img
+        style="max-height: 50px;"
+        src="https://cdn4.buysellads.net/uu/1/3386/1525189943-38523.png"
+        alt=""
+      />
+    </div>
+    <p style="text-align: left; margin-left: 80px;">Kernel Name</p>
+    <p style="text-align: left; margin-left: 80px; margin-top: -9px;">
+      Build Date
+    </p>
+  </div>
+</div>
